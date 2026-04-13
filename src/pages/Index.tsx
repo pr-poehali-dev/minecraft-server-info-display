@@ -7,7 +7,6 @@ const NAV_ITEMS = [
   { id: "home", label: "Главная" },
   { id: "about", label: "О сервере" },
   { id: "connect", label: "Подключение" },
-  { id: "rules", label: "Правила" },
   { id: "contacts", label: "Контакты" },
 ];
 
@@ -111,7 +110,7 @@ export default function Index() {
             style={{ fontFamily: "'Press Start 2P', monospace", fontSize: 11, color: "var(--mc-green)" }}
             onClick={() => scrollTo("home")}
           >
-            ⛏ MINE<span style={{ color: "#FFD700" }}>SERVER</span>
+            ⛏ GRIF<span style={{ color: "#FFD700" }}>MINE</span>
           </div>
 
           <div className="hidden md:flex gap-6 items-center">
@@ -190,7 +189,7 @@ export default function Index() {
               textShadow: "4px 4px 0px rgba(0,0,0,0.9), 0 0 40px rgba(255,215,0,0.3)",
             }}
           >
-            MINE<span style={{ color: "var(--mc-green)", textShadow: "4px 4px 0px rgba(0,0,0,0.9), 0 0 40px rgba(90,170,58,0.4)" }}>SERVER</span>
+            GRIF<span style={{ color: "var(--mc-green)", textShadow: "4px 4px 0px rgba(0,0,0,0.9), 0 0 40px rgba(90,170,58,0.4)" }}>MINE</span>
           </div>
 
           <p style={{ fontFamily: "'VT323', monospace", fontSize: "clamp(18px, 3vw, 26px)", letterSpacing: 1, color: "#b0c8a0" }} className="mb-6">
@@ -329,36 +328,7 @@ export default function Index() {
         </div>
       </section>
 
-      {/* RULES */}
-      <section id="rules" className="py-20 px-4" style={{ background: "#0d1117" }}>
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 style={{ fontFamily: "'Press Start 2P', monospace", fontSize: "clamp(14px, 2.5vw, 22px)", color: "#FFD700", textShadow: "3px 3px 0px rgba(0,0,0,0.7)" }} className="mb-4">
-              Правила
-            </h2>
-            <PixelDivider />
-            <p style={{ fontFamily: "'VT323', monospace", fontSize: 20, color: "#8aad70" }} className="mt-4">
-              Нарушение правил — бан без предупреждения
-            </p>
-          </div>
 
-          <div className="flex flex-col gap-3">
-            {RULES.map((rule, i) => (
-              <div key={i} className="pixel-card p-4 flex items-start gap-4">
-                <span style={{ fontFamily: "'Press Start 2P', monospace", fontSize: 10, color: "var(--mc-green)", minWidth: 28 }}>#{i + 1}</span>
-                <span style={{ fontFamily: "'VT323', monospace", fontSize: 21, color: "#c8e0a8" }}>{rule}</span>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-8 p-5" style={{ background: "rgba(200,50,50,0.07)", border: "4px solid #5a2020", boxShadow: "inset -2px -2px 0px rgba(0,0,0,0.4)" }}>
-            <div style={{ fontFamily: "'Press Start 2P', monospace", fontSize: 9, color: "#cc5555", marginBottom: 8 }}>⚠ Важно</div>
-            <div style={{ fontFamily: "'VT323', monospace", fontSize: 19, color: "#d08080" }}>
-              Администрация оставляет за собой право заблокировать игрока за нарушение правил без объяснений.
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* CONTACTS */}
       <section id="contacts" className="py-20 px-4" style={{ background: "#0a0f16", borderTop: "4px solid var(--mc-border)" }}>
