@@ -342,11 +342,16 @@ export default function Index() {
             Есть вопросы? Свяжитесь с нами!
           </p>
 
-          <div className="flex justify-center mb-10">
+          <div className="flex justify-center gap-4 mb-10">
             <div className="pixel-card p-5 hover:scale-105 transition-transform cursor-pointer w-48">
               <div className="text-3xl mb-2">📱</div>
               <div style={{ fontFamily: "'Press Start 2P', monospace", fontSize: 8, color: "var(--mc-green)", marginBottom: 8 }}>Telegram</div>
               <div style={{ fontFamily: "'VT323', monospace", fontSize: 17, color: "#8aad70" }}>@mineserver_ru</div>
+            </div>
+            <div className="pixel-card p-5 hover:scale-105 transition-transform cursor-pointer w-48">
+              <div className="text-3xl mb-2">🔵</div>
+              <div style={{ fontFamily: "'Press Start 2P', monospace", fontSize: 8, color: "#4a76a8", marginBottom: 8 }}>ВКонтакте</div>
+              <div style={{ fontFamily: "'VT323', monospace", fontSize: 17, color: "#8aad70" }}>vk.com/mineserver</div>
             </div>
           </div>
 
