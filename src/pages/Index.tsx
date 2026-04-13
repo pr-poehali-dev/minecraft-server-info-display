@@ -342,18 +342,12 @@ export default function Index() {
             Есть вопросы? Свяжитесь с нами!
           </p>
 
-          <div className="grid md:grid-cols-3 gap-4 mb-10">
-            {[
-              { icon: "💬", label: "Discord", value: "discord.gg/mineserver", color: "#7289da" },
-              { icon: "📱", label: "Telegram", value: "@mineserver_ru", color: "var(--mc-green)" },
-              { icon: "📧", label: "Email", value: "admin@mineserver.ru", color: "#FFD700" },
-            ].map((c) => (
-              <div key={c.label} className="pixel-card p-5 hover:scale-105 transition-transform cursor-pointer">
-                <div className="text-3xl mb-2">{c.icon}</div>
-                <div style={{ fontFamily: "'Press Start 2P', monospace", fontSize: 8, color: c.color, marginBottom: 8 }}>{c.label}</div>
-                <div style={{ fontFamily: "'VT323', monospace", fontSize: 17, color: "#8aad70" }}>{c.value}</div>
-              </div>
-            ))}
+          <div className="flex justify-center mb-10">
+            <div className="pixel-card p-5 hover:scale-105 transition-transform cursor-pointer w-48">
+              <div className="text-3xl mb-2">📱</div>
+              <div style={{ fontFamily: "'Press Start 2P', monospace", fontSize: 8, color: "var(--mc-green)", marginBottom: 8 }}>Telegram</div>
+              <div style={{ fontFamily: "'VT323', monospace", fontSize: 17, color: "#8aad70" }}>@mineserver_ru</div>
+            </div>
           </div>
 
           <div className="pixel-card p-6 text-left">
