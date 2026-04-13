@@ -89,7 +89,7 @@ export default function Index() {
   };
 
   const copyIp = () => {
-    navigator.clipboard.writeText("play.mineserver.ru");
+    navigator.clipboard.writeText("grifmine963.mcsh.io");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -207,7 +207,7 @@ export default function Index() {
           >
             <span style={{ fontFamily: "'Press Start 2P', monospace", fontSize: 10, color: "#666" }}>IP:</span>
             <span className="animate-pixel-glow" style={{ fontFamily: "'Press Start 2P', monospace", fontSize: 14, color: "var(--mc-green)" }}>
-              play.mineserver.ru
+              grifmine963.mcsh.io
             </span>
             <button className="pixel-btn" style={{ fontSize: 9, padding: "8px 16px" }} onClick={copyIp}>
               {copied ? "✓ скопировано" : "📋 копировать"}
@@ -318,7 +318,7 @@ export default function Index() {
           >
             <div style={{ fontFamily: "'Press Start 2P', monospace", fontSize: 10, color: "#555", marginBottom: 12 }}>Адрес сервера:</div>
             <div className="animate-pixel-glow mb-4" style={{ fontFamily: "'Press Start 2P', monospace", fontSize: "clamp(12px, 3vw, 20px)", color: "var(--mc-green)" }}>
-              play.mineserver.ru
+              grifmine963.mcsh.io
             </div>
             <button className="pixel-btn" onClick={copyIp}>{copied ? "✓ Скопировано!" : "📋 Скопировать IP"}</button>
           </div>
@@ -433,7 +433,7 @@ export default function Index() {
           © 2024 MINESERVER · Все права защищены
         </div>
         <div style={{ fontFamily: "'VT323', monospace", fontSize: 15, color: "#1e2e15", marginTop: 4 }}>
-          play.mineserver.ru
+          grifmine963.mcsh.io
         </div>
       </footer>
     </div>
