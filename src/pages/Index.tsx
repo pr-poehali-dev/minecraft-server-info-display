@@ -193,7 +193,7 @@ export default function Index() {
           </div>
 
           <p style={{ fontFamily: "'VT323', monospace", fontSize: "clamp(18px, 3vw, 26px)", letterSpacing: 1, color: "#b0c8a0" }} className="mb-6">
-            Уникальные крафты · Линейка достижений · Своё комьюнити
+            Уникальные крафты · Линейка достижений · Своё комьюнити · Сервер полностью без доната
           </p>
 
           <div
