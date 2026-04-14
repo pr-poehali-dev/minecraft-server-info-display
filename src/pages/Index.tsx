@@ -9,7 +9,7 @@ const NAV_ITEMS = [
   { id: "about", label: "О сервере" },
   { id: "connect", label: "Подключение" },
   { id: "contacts", label: "Контакты" },
-  { id: "donate", label: "💰 Донат" },
+  { id: "donate", label: "💰 Самопожертвование" },
 ];
 
 const ACHIEVEMENTS = [
