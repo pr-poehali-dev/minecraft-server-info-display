@@ -10,6 +10,7 @@ const NAV_ITEMS = [
   { id: "connect", label: "Подключение" },
   { id: "contacts", label: "Контакты" },
   { id: "donate", label: "💰 Самопожертвование" },
+  { id: "vote", label: "🗳 Голосуйте за нас!" },
 ];
 
 const ACHIEVEMENTS = [
@@ -86,6 +87,10 @@ export default function Index() {
   const scrollTo = (id: string) => {
     if (id === "donate") {
       navigate("/donate");
+      return;
+    }
+    if (id === "vote") {
+      navigate("/vote");
       return;
     }
     setActive(id);
