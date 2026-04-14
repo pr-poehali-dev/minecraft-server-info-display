@@ -126,6 +126,16 @@ export default function Donate() {
           >
             Карта Сбербанка
           </div>
+          <div
+            style={{
+              fontFamily: "'VT323', monospace",
+              fontSize: 20,
+              color: "#d4e8c2",
+              marginBottom: 16,
+            }}
+          >
+            Киреев Всеволод Александрович
+          </div>
 
           {/* Card number */}
           <div
