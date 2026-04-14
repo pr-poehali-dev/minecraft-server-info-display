@@ -40,6 +40,13 @@ const VOTE_SITES = [
     desc: "Поддержи нас на Minecraft-Inside — каждый голос важен!",
     color: "#5aaa3a",
   },
+  {
+    name: "MisterLauncher",
+    url: "https://misterlauncher.org/server/96000/",
+    icon: "🚀",
+    desc: "Проголосуй на MisterLauncher и помоги нам в рейтинге!",
+    color: "#7b5ea7",
+  },
 ];
 
 export default function Vote() {
