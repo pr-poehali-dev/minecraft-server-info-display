@@ -1,47 +1,8 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 
-const DONATE_TIERS = [
-  {
-    icon: "🪨",
-    name: "Камень",
-    price: "50 ₽",
-    color: "#7a7a7a",
-    perks: ["Префикс [Камень] в чате", "Доступ к /kit stone раз в день"],
-  },
-  {
-    icon: "🪵",
-    name: "Дерево",
-    price: "150 ₽",
-    color: "#8B5E3C",
-    perks: ["Префикс [Дерево] в чате", "Доступ к /kit wood", "Цветной ник"],
-  },
-  {
-    icon: "💎",
-    name: "Алмаз",
-    price: "300 ₽",
-    color: "#44cccc",
-    perks: [
-      "Префикс [Алмаз] в чате",
-      "Доступ к /kit diamond",
-      "Цветной ник",
-      "Полёт в мирных зонах",
-    ],
-  },
-  {
-    icon: "✨",
-    name: "Незерит",
-    price: "600 ₽",
-    color: "#FFD700",
-    perks: [
-      "Префикс [Незерит] в чате",
-      "Полный набор /kit netherite",
-      "Цветной ник + эффекты",
-      "Полёт везде",
-      "Доп. дом /sethome",
-    ],
-  },
-];
+const CARD_NUMBER = "2202 2062 6446 5738";
 
 function PixelBlock({ color = "#5aaa3a", size = 16 }: { color?: string; size?: number }) {
   return (
@@ -70,6 +31,13 @@ function PixelDivider() {
 
 export default function Donate() {
   const navigate = useNavigate();
+  const [copied, setCopied] = useState(false);
+
+  const copyCard = () => {
+    navigator.clipboard.writeText(CARD_NUMBER.replace(/\s/g, ""));
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   return (
     <div
@@ -113,17 +81,17 @@ export default function Donate() {
 
       {/* Hero */}
       <div className="pt-24 pb-8 text-center px-4">
-        <div className="text-6xl mb-4">💰</div>
+        <div className="text-6xl mb-4">🙏</div>
         <h1
           style={{
             fontFamily: "'Press Start 2P', monospace",
-            fontSize: 20,
+            fontSize: 18,
             color: "#FFD700",
             textShadow: "4px 4px 0 #000, 0 0 20px #FFD700",
-            lineHeight: 1.6,
+            lineHeight: 1.8,
           }}
         >
-          ПОДДЕРЖИ СЕРВЕР
+          ПОЖЕРТВОВАНИЕ
         </h1>
         <PixelDivider />
         <p
@@ -131,120 +99,149 @@ export default function Donate() {
             fontFamily: "'VT323', monospace",
             fontSize: 22,
             color: "#b0c8a0",
-            maxWidth: 600,
+            maxWidth: 560,
             margin: "0 auto",
           }}
         >
-          Твой донат помогает нам держать сервер онлайн, обновлять плагины и развивать проект.
-          Получи уникальные привилегии в благодарность!
+          Каждый рубль помогает нам держать сервер онлайн, оплачивать хостинг и развивать проект для вас.
         </p>
       </div>
 
-      {/* Tiers */}
-      <div className="max-w-5xl mx-auto px-4 pb-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {DONATE_TIERS.map((tier) => (
-            <div
-              key={tier.name}
-              className="pixel-card p-6 flex flex-col items-center text-center hover:scale-105 transition-transform"
+      {/* Main card */}
+      <div className="max-w-lg mx-auto px-4 pb-16 flex flex-col gap-6">
+
+        {/* Card block */}
+        <div
+          className="pixel-card p-8 text-center"
+          style={{ borderColor: "#FFD700", boxShadow: "0 0 30px rgba(255,215,0,0.2)" }}
+        >
+          <div className="text-4xl mb-4">💳</div>
+          <div
+            style={{
+              fontFamily: "'Press Start 2P', monospace",
+              fontSize: 9,
+              color: "#8aad70",
+              marginBottom: 16,
+            }}
+          >
+            Карта Сбербанка
+          </div>
+
+          {/* Card number */}
+          <div
+            className="pixel-card px-6 py-4 mb-6 flex items-center justify-between gap-4"
+            style={{ background: "#111820", borderColor: "#3d5a2a" }}
+          >
+            <span
+              style={{
+                fontFamily: "'Press Start 2P', monospace",
+                fontSize: 14,
+                color: "#FFD700",
+                textShadow: "2px 2px 0 #000",
+                letterSpacing: 2,
+              }}
             >
-              <div className="text-5xl mb-3">{tier.icon}</div>
+              {CARD_NUMBER}
+            </span>
+            <button
+              onClick={copyCard}
+              className="hover:opacity-70 transition-opacity flex-shrink-0"
+              title="Скопировать"
+            >
+              <Icon name={copied ? "Check" : "Copy"} size={20} color={copied ? "#5aaa3a" : "#8aad70"} />
+            </button>
+          </div>
+
+          {copied && (
+            <div
+              style={{
+                fontFamily: "'VT323', monospace",
+                fontSize: 20,
+                color: "#5aaa3a",
+                marginBottom: 12,
+              }}
+            >
+              ✓ Номер скопирован!
+            </div>
+          )}
+
+          <p
+            style={{
+              fontFamily: "'VT323', monospace",
+              fontSize: 19,
+              color: "#b0c8a0",
+              lineHeight: 1.5,
+            }}
+          >
+            Переведи любую сумму на карту через приложение Сбербанка.
+            После перевода напиши нам в Telegram — скажем спасибо!
+          </p>
+        </div>
+
+        {/* How to block */}
+        <div className="pixel-card p-6">
+          <div
+            style={{
+              fontFamily: "'Press Start 2P', monospace",
+              fontSize: 9,
+              color: "#5aaa3a",
+              marginBottom: 16,
+              textShadow: "2px 2px 0 #000",
+            }}
+          >
+            Как перевести?
+          </div>
+          {[
+            { n: "1", text: "Открой приложение Сбербанк Онлайн" },
+            { n: "2", text: "Переводы → По номеру карты" },
+            { n: "3", text: `Введи номер: ${CARD_NUMBER}` },
+            { n: "4", text: "Укажи любую сумму и подтверди" },
+            { n: "5", text: "Напиши нам в Telegram — мы скажем спасибо!" },
+          ].map((step) => (
+            <div key={step.n} className="flex items-start gap-3 mb-3">
               <div
                 style={{
                   fontFamily: "'Press Start 2P', monospace",
-                  fontSize: 10,
-                  color: tier.color,
-                  textShadow: `2px 2px 0 #000, 0 0 10px ${tier.color}`,
-                  marginBottom: 6,
-                }}
-              >
-                {tier.name}
-              </div>
-              <div
-                style={{
-                  fontFamily: "'Press Start 2P', monospace",
-                  fontSize: 14,
+                  fontSize: 9,
                   color: "#FFD700",
-                  textShadow: "2px 2px 0 #000",
-                  marginBottom: 14,
+                  flexShrink: 0,
+                  marginTop: 2,
                 }}
               >
-                {tier.price}
+                {step.n}.
               </div>
-              <ul className="w-full mb-6 flex flex-col gap-2">
-                {tier.perks.map((perk) => (
-                  <li
-                    key={perk}
-                    className="flex items-start gap-2 text-left"
-                    style={{ fontFamily: "'VT323', monospace", fontSize: 18, color: "#b0c8a0" }}
-                  >
-                    <span style={{ color: "#5aaa3a", flexShrink: 0 }}>▶</span>
-                    {perk}
-                  </li>
-                ))}
-              </ul>
-              <button
-                className="pixel-btn w-full mt-auto"
-                style={{ fontFamily: "'Press Start 2P', monospace", fontSize: 8 }}
-                disabled
-              >
-                Скоро
-              </button>
+              <div style={{ fontFamily: "'VT323', monospace", fontSize: 20, color: "#b0c8a0" }}>
+                {step.text}
+              </div>
             </div>
           ))}
         </div>
 
-        {/* Info block */}
-        <div
-          className="pixel-card p-6 text-center"
-          style={{ borderColor: "#FFD700", boxShadow: "0 0 20px rgba(255,215,0,0.15)" }}
-        >
-          <div className="text-3xl mb-3">📢</div>
-          <p
+        {/* Contacts */}
+        <div className="flex gap-4">
+          <a
+            href="https://t.me/grifmineg"
+            target="_blank"
+            rel="noreferrer"
+            className="pixel-btn flex-1 text-center"
+            style={{ fontFamily: "'Press Start 2P', monospace", fontSize: 8 }}
+          >
+            Telegram
+          </a>
+          <a
+            href="https://vk.ru/club237363875"
+            target="_blank"
+            rel="noreferrer"
+            className="pixel-btn flex-1 text-center"
             style={{
               fontFamily: "'Press Start 2P', monospace",
-              fontSize: 9,
-              color: "#FFD700",
-              textShadow: "2px 2px 0 #000",
-              marginBottom: 10,
+              fontSize: 8,
+              background: "#4a76a8",
+              boxShadow: "inset -4px -4px 0px #2a4a6a, inset 4px 4px 0px #6a96c8",
             }}
           >
-            Оплата скоро будет доступна
-          </p>
-          <p
-            style={{
-              fontFamily: "'VT323', monospace",
-              fontSize: 20,
-              color: "#b0c8a0",
-            }}
-          >
-            Система доната находится в разработке. Следи за новостями в нашем Telegram и ВКонтакте!
-          </p>
-          <div className="flex justify-center gap-4 mt-5">
-            <a
-              href="https://t.me/grifmineg"
-              target="_blank"
-              rel="noreferrer"
-              className="pixel-btn"
-              style={{ fontFamily: "'Press Start 2P', monospace", fontSize: 8 }}
-            >
-              Telegram
-            </a>
-            <a
-              href="https://vk.ru/club237363875"
-              target="_blank"
-              rel="noreferrer"
-              className="pixel-btn"
-              style={{
-                fontFamily: "'Press Start 2P', monospace",
-                fontSize: 8,
-                background: "#4a76a8",
-                boxShadow: "inset -4px -4px 0px #2a4a6a, inset 4px 4px 0px #6a96c8",
-              }}
-            >
-              ВКонтакте
-            </a>
-          </div>
+            ВКонтакте
+          </a>
         </div>
       </div>
     </div>
