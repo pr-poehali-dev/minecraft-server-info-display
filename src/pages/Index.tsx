@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 
 const HERO_IMAGE = "https://cdn.poehali.dev/projects/7b9969f2-de2e-4368-ac9e-e901b14ff577/files/89275738-ebc6-48a6-bfc9-85549782a487.jpg";
@@ -8,6 +9,7 @@ const NAV_ITEMS = [
   { id: "about", label: "О сервере" },
   { id: "connect", label: "Подключение" },
   { id: "contacts", label: "Контакты" },
+  { id: "donate", label: "💰 Донат" },
 ];
 
 const ACHIEVEMENTS = [
@@ -79,8 +81,13 @@ export default function Index() {
   const [active, setActive] = useState("home");
   const [copied, setCopied] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const scrollTo = (id: string) => {
+    if (id === "donate") {
+      navigate("/donate");
+      return;
+    }
     setActive(id);
     setMenuOpen(false);
     const el = document.getElementById(id);
